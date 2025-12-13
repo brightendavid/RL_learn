@@ -8,7 +8,26 @@ https://github.com/jwk1rose/RL_Learning.git
 
 
 
-## 感谢西湖大学赵老师的视频
+## 感谢国科大刘俊明老师的机器学习课程
+* 创造性得提出了教授强化学习
+* 一些思路方法我是十分认可的
+* 可以看出是想要教一些真东西的
+* 惹出什么事端不要把师傅说出去就行了
+
+## 计划
+* 补全一些原作者没写的方法
+* 加些注释，否则别人看不懂
+* 使用现在主流的方法完成
+* 可能在展示方面可以做一些不足
+
+
+## 想法
+* 我认为无论有没有完成强化学习课程的学习，都可以通过实现/借鉴这个仓库熟悉/预习强化学习
+* 我认为现阶段这个仓库的注释写的还是非常完善的
+* 一些基本理论，也尽量写上去
+* 尽可能的说人话
+
+## 感谢西湖大学赵老师的视频课程
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=388100433&bvid=BV1sd4y167NS&cid=998866354&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
