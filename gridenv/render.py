@@ -106,10 +106,17 @@ class Render:
         self.ax.text(pos[0]+0.5,pos[1]+0.5,word,
                      size= size_discount*(30-2*self.size),ha= 'center',
                      va = 'center',color= color)
-    def update_agent(self,pos,action,next_pos):
-        # 更新agent的位置
-        # trajectory is a list of [pos,action,nextpos]
-        self.trajectory.append([tuple(pos),action,tuple(next_pos)])
+    def upgrade_agent(self, pos: Union[list, np.ndarray, tuple], action,
+                      next_pos: Union[list, np.ndarray, tuple], ) -> None:
+        """
+        更新agent的位置
+        :param next_pos: 当前pos和下一步的位置
+        :param action: 对应位置采取的action
+        :param pos: 当前的state位置
+        :return: None
+        """
+
+        self.trajectory.append([tuple(pos), action, tuple(next_pos)])
 
 
     def show_frame(self,t = 0.5)->None:
@@ -168,8 +175,9 @@ class Render:
             # 画出这个trajectory的路线轨迹
 
 
-    def add_subplot_to_fig(self,fig,x,y,subplot_positon,xlabel,
-                           ylabel,title=""):
+
+    def add_subplot_to_fig(self, fig, x, y, subplot_position, xlabel,
+                           ylabel, title=''):
         """
         在给定的位置上添加一个子图到当前的图中，并在子图中调用plot函数，设置x,y label和title。
 
@@ -181,7 +189,7 @@ class Render:
         ylabel: y轴的标签
         title: 子图的标题
         """
-        ax = fig.add_subplot(subplot_positon)
+        ax = fig.add_subplot(subplot_position)
         # 调用plot函数绘制图形
         ax.plot(x, y)
         # 设置x,y label和title

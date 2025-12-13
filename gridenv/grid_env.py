@@ -25,6 +25,7 @@ def arr_in_list(array, _list):
 
 class GridEnv(gym.Env):
     # 类级别的属性，可以被调用
+    agent_location = None
     Rsa = None
     Psa = None
     render_ = None
@@ -82,7 +83,11 @@ class GridEnv(gym.Env):
         return observation, info
 
     def step(self, action: ActType) -> Tuple[ObsType, float, bool, bool, dict]:
-
+        """
+        在给定了s和action的情况下走一步，返回reward和是否到达target
+        :param action:
+        :return:
+        """
         reward = self.reward_list[self.Rsa[self.pos2state(self.agent_location), action]
             .tolist().index(1)]
         direction = self.action_to_direction[action]
@@ -96,7 +101,7 @@ class GridEnv(gym.Env):
     def render(self) -> Optional[Union[RenderFrame, List[RenderFrame]]]:
         if self.render_mode == "video":
             self.render_.save_video('image/' + str(time.time()))
-        self.render_.show_frame(5.3)
+        self.render_.show_frame(15.3)
         return None
 
     def get_obs(self) -> ObsType:

@@ -6,6 +6,8 @@ import numpy as np
 
 import gridenv.render as render
 import gridenv.grid_env as genv
+# with model
+# 包含了Policy iteration and Value Iteration
 """
 使用Policy Iteration和Value Iteration需要满足条件：
 * Action对State的影响和回报 P(State', Reward | State, Action)是已知的
