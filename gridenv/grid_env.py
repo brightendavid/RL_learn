@@ -45,7 +45,8 @@ class GridEnv(gym.Env):
         self.time_steps = 0
         self.size = size
         self.render_mode = render_mode
-        self.render_ = render.Render(target=target, forbidden=forbidden, size=size)
+        self.render_ = render.Render(target=target, forbidden=forbidden, size=size) # 实例化了render.Render类，实际上是类里面包含类
+        # 把实现比较复杂的方法提出来
         # 初始化起点 障碍物 目标点
         self.forbidden_location = []
         for fob in forbidden:
@@ -99,10 +100,17 @@ class GridEnv(gym.Env):
         return observation, reward, terminated, False, info
 
     def render(self) -> Optional[Union[RenderFrame, List[RenderFrame]]]:
+        # 使用这个方法只能使用一次，因为关闭窗口会导致下一个窗口出不来，想要一次运行展示多图需要进行save
         if self.render_mode == "video":
             self.render_.save_video('image/' + str(time.time()))
         self.render_.show_frame(15.3)
         return None
+
+    def render_save(self) -> Optional[Union[RenderFrame, List[RenderFrame]]]:
+        self.render_.save_frame("./image/" + str(time.time()))
+        # print(time.time())
+    def rend_reset(self) -> Optional[Union[RenderFrame, List[RenderFrame]]]:
+        self.render_.init()
 
     def get_obs(self) -> ObsType:
         return {"agent": self.agent_location, "target": self.target_location, "barrier": self.forbidden_location}
@@ -155,8 +163,8 @@ class GridEnv(gym.Env):
                         self.Rsa[state_index, action_index, 2] = 1
                     else:
                         self.Rsa[state_index, action_index, 0] = 1
-        print(self.Psa.shape)  # (25, 5, 25)   Psa, 就是 s->s'   的概率，  s经过5个 action  后到达  s'   s,s'有25种情况，就是网格的大小
-        print(self.Rsa.shape)  # (25, 5, 4)   Psa   s经过5个action 获得的  的reword
+        # print(self.Psa.shape)  # (25, 5, 25)   Psa, 就是 s->s'   的概率，  s经过5个 action  后到达  s'   s,s'有25种情况，就是网格的大小
+        # print(self.Rsa.shape)  # (25, 5, 4)   Psa   s经过5个action 获得的  的reword
     def close(self):
         pass
 

@@ -144,7 +144,13 @@ class Render:
         # init 和 animate 都是服务于animation.FuncAnimation
         # 具体用法参考matplotlib官网
     def init(self):
-            pass
+        # 清空,就是重新涂色，覆盖掉箭头和文字
+        for i in range(self.size):
+            for j in range(self.size):
+                self.fill_block(pos=(i,j), color='white')
+        for pos in self.forbidden:
+            self.fill_block(pos=pos)
+        self.fill_block(pos= self.target,color ='darkturquoise')
 
     def animate(self, i):
             print(i, len(self.trajectory))
