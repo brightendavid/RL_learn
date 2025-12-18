@@ -1,0 +1,33 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+          <option value="N801" />
+          <option value="N802" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="bool.float" />
+          <option value="bool.reshape" />
+          <option value="str.append" />
+          <option value="skimage.measure.compare_ssim.structural_similarity" />
+          <option value="list.len" />
+          <option value="cv2.imwrite" />
+          <option value="cv2.imread" />
+          <option value="world2.QT.Horizontal" />
+          <option value="list.to_numpy" />
+          <option value="list.__getitem__" />
+          <option value="render" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
