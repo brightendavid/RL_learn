@@ -58,3 +58,23 @@ net_based.py|        这是dqn算法        | ？？ |
 * 这个课讲的非常不错，需要结合代码实践加深理解。
 
 * 听明白需要一定的基础
+
+
+
+## Star History
+
+<a href="https://www.star-history.com/#brightendavid/RL_learn">
+
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Ronchy2000/Multi-agent-RL&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Ronchy2000/Multi-agent-RL&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Ronchy2000/Multi-agent-RL&type=Date" />
+ </picture>
+</a>
+
+---
+
+<p align="center">
+  <em> ❤️ 感谢您的关注!</em><br><br>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=ronchy2000.Multi-agent-RL&style=for-the-badge&color=00d4ff" alt="Views">
+</p>
