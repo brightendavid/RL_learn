@@ -114,10 +114,10 @@ class Solve:
 
 
 
-    def dqn(self,learning_rate = 0.0015,episode_length =5000,
-            epochs = 720,batch_size=50,update_step =20):
+    def dqn(self,learning_rate = 0.0015,episode_length =1000,
+            epochs = 720,batch_size=10,update_step =40):
         """
-        dqn,基于off policy的q-learning.
+        dqn,基于off policy的q-learning.这里是使用了静态的data，一般可以使用经验回放策略
         两个网络，可以看做是判别器和生成器的关系，实际上并不是。
         这个网络训练需要的数据量和epoch比想象的要多。理想情况下，这个loss应当非常小才算比较好的策略。
         计划：1.可以看一看GAN网络的写法。
@@ -185,7 +185,7 @@ class Solve:
                 # 优化参数
 
                 if i%update_step == 0 and i!=0:
-                    q_net.load_state_dict(q_net.state_dict())
+                    q_target_net.load_state_dict(q_net.state_dict())
                     # 每update_step次迭代，更新target网络参数
                     # 这个思想根源可以追溯到GAN网络的判别器和生成器
                     # 防止一个跑一个追，训练不好的情况.update_step这个超参数需要根据经验设置，考虑网络大小，数据集大小等因素

@@ -100,7 +100,7 @@ class Solve:
         缺点在于：太慢了
 
         need：1.采样序列：这个序列看情况，因为蒙特卡罗方法只更新走过的state，所以需要全state每一个episode都做一遍
-        2.一个探索性的初始策略。这个策略可以不好，但是一定要是探索性强的，否则效果就不好了。对于走过的state，action会对这个策略进行更新。
+        2.初始策略随便选。无关的。对于走过的state，action会对这个策略进行更新。
 
         当然这个更新是从target逐步扩散开来的
 
@@ -510,5 +510,6 @@ if __name__ == '__main__':
     solver = Solve(env)
     solver.q_learning_offpolicy()
     solver.show_policy()
+    solver.show_state_value(solver.state_value)
     env.render()
 
