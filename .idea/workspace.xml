@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2b13dfd-d502-4489-a8b9-04e970a8c632" name="Default Changelist" comment="net based method">
-      <change afterPath="$PROJECT_DIR$/VFA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765803826.5987911.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765803940.0998306.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804065.488808.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804167.3807535.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804273.5717115.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804390.0355606.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804486.633871.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/1765804595.9407094.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_based.py" beforeDir="false" afterPath="$PROJECT_DIR$/net_based.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nomodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/nomodel.py" afterDir="false" />
+    <list default="true" id="b2b13dfd-d502-4489-a8b9-04e970a8c632" name="Default Changelist" comment="debug">
+      <change beforePath="$PROJECT_DIR$/VFA.py" beforeDir="false" afterPath="$PROJECT_DIR$/VFA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +69,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.nomodel">
+  <component name="RunManager" selected="Python.VFA">
     <configuration name="VFA" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RL_learn" />
       <option name="ENV_FILES" value="" />
@@ -216,8 +205,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.nomodel" />
         <item itemvalue="Python.VFA" />
+        <item itemvalue="Python.nomodel" />
         <item itemvalue="Python.net_based" />
         <item itemvalue="Python.solver" />
         <item itemvalue="Python.render (1)" />
@@ -312,7 +301,23 @@
       <option name="project" value="LOCAL" />
       <updated>1766047806407</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="net based method">
+      <option name="closed" value="true" />
+      <created>1766574755222</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1766574755222</updated>
+    </task>
+    <task id="LOCAL-00010" summary="debug">
+      <option name="closed" value="true" />
+      <created>1766574772961</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1766574772961</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +327,8 @@
     <MESSAGE value="nomodel" />
     <MESSAGE value="readme+" />
     <MESSAGE value="net based method" />
-    <option name="LAST_COMMIT_MESSAGE" value="net based method" />
+    <MESSAGE value="debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RL_learn$grid_env.coverage" NAME="grid_env Coverage Results" MODIFIED="1765019423470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/envs" />

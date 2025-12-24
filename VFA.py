@@ -258,11 +258,12 @@ class Solve:
         return np.array(feature_vector)
 
     def sarsa_value_approximation(self,learning_rate = 0.005,
-                    epsilon= 0.1,num_episodes =10,fourier =True,ord =5):
+                    epsilon= 0.1,num_episodes =400,fourier =True, ord =5):
         """
         这里和sarsa的逻辑是一样的，只是把计算q-value的部分 函数化了,更新的是w参数，函数为grv_a(s,a)
-        采用np.dot(a,b)进行计算q-value
-        运行结果正确
+        采用np.dot(a,b)进行计算q-value,因为全部都是基于np跑的，所以慢一点
+        运行结果正确？
+        这比想象的跑的慢很多呀
 
         :param learning_rate:
         :param epsilon:
@@ -323,9 +324,84 @@ class Solve:
                         policy[state,a] = 1/ self.action_space_size * epsilon
             print("episode={},length={},reward={}".format(episode, episode_length, total_reward))
             # print(qvalue_approximation)
-        self.policy = qvalue_approximation
+        self.policy = policy
+        print(qvalue_approximation)
         # return qvalue_approximation
 
+    def qlearning_approximation(self,learning_rate = 0.0005,
+                    epsilon= 0.1,num_episodes =1200,fourier =True, ord =5):
+        """
+        这里和sarsa_approximation的逻辑是一样的，只是把计算q-value的部分 函数化了,更新的是w参数，函数为grv_a(s,a)
+        采用np.dot(a,b)进行计算q-value,因为全部都是基于np跑的，所以慢一点
+
+        和正常的q learning 算法相同，是在sarsa的基础上改为贝尔曼最优公式去求解
+        即，next action的位置改为求所有action的空间，再求max q-value
+        策略没有明显问题，应该是正确的编码
+        :param learning_rate:
+        :param epsilon:
+        :param num_episodes:
+        :param fourier:
+        :param ord:
+        :return: qvalue ,not the  state value,it is different from the td_value_approximation。当然也可以求出state value，就是qvalue的expectation
+        """
+        dim = (ord+1)**3 if fourier else np.arange(ord +2).sum() # 因为是三个变量的基函数，所以是3次
+        w = np.random.default_rng().normal(size = dim)
+        # print("w",w) # 36,1
+        qvalue_approximation = np.zeros((self.state_space_size,self.action_space_size))
+        reward_list =[]
+        length_list =[]
+        rmse =[]
+        policy_rmse =[]
+        policy  = self.mean_policy.copy()
+        next_state = 0
+        # episode = self.obtain_episode(self.mean_policy, 0,0,length =num_episodes)
+        for episode in range(num_episodes):
+            print(episode)
+            done = False
+            self.env.reset()
+            total_reward = 0
+            episode_length = 0
+            while not done:
+                state = next_state
+                action = np.random.choice(range(self.action_space_size),
+                                          p = policy[state])
+                _,reward,done,_,_ = self.env.step(action)
+                # 这是采样的过程
+                episode_length += 1
+                total_reward += reward
+                next_state = self.env.pos2state(self.env.agent_location)
+                # 和sarsa的不同点在这里
+                q_list = []
+                for a in range(self.action_space_size):
+                    matix_next = self.gfv_a(fourier, next_state, a, ord)
+                    q_a = self.gama * np.dot(matix_next, w)
+                    q_list.append(q_a)
+                target = reward + self.gama * np.array(q_list).max()
+                matix_state =self.gfv_a(fourier, state,action, ord)
+                error = target  - np.dot(matix_state, w)
+                gradient = self.gfv_a(fourier, state, action,ord)
+                # 参数更新
+                w = w +learning_rate * gradient * error
+
+                qvalue_approximation[state,action] = np.dot(self.gfv_a(fourier, state, action, ord), w)
+                # 原作者这里有一个遍历所有state，action我不是很懂，似乎没有意义
+                # for s in range(self.state_space_size):
+                #     for a in range(self.action_space_size):
+                #         qvalue_approximation[s, a] = np.dot(self.gfv_a(fourier, s, a, ord), w)
+
+                # find the best action
+                qvalue_star = qvalue_approximation[state].max()
+                action_star = qvalue_approximation[state].tolist().index(qvalue_star)
+
+                for a in range(self.action_space_size):
+                    if a == action_star:
+                        policy[state,a] = 1- (self.action_space_size - 1) / self.action_space_size * epsilon
+                    else:
+                        policy[state,a] = 1/ self.action_space_size * epsilon
+            print("episode={},length={},reward={}".format(episode, episode_length, total_reward))
+            # print(qvalue_approximation)
+        self.policy = policy
+        print(qvalue_approximation)
 
 
 if __name__ == '__main__':
@@ -337,6 +413,6 @@ if __name__ == '__main__':
     # episode = solver.obtain_episode(solver.mean_policy, 0,
     #                               0, length=50)
     # print(episode) #{'state': 0, 'action': 0, 'reward': -10, 'next_state': np.int64(0), 'next_action': np.int64(2)}
-    solver.sarsa_value_approximation()
+    solver.qlearning_approximation()
     solver.show_policy()
     env.render()

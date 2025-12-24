@@ -46,7 +46,8 @@ https://github.com/jwk1rose/RL_Learning.git
 * 两条腿走路。一面是理论，一面是实践。
 * 计算机专业应该会写代码，鼓掌👏👏👏。
 * 我感觉强化学习做这些东西还是太基础了。可以尝试做一些游戏AI，自动脚本自动决策。
-* 我看到一个很好玩的东西https://github.com/wty-yy/KataCR，这个工作做得比我的本科毕设更有趣。工作量也是非常足够的。用视觉手段实现游戏AI皇室战争。
+* 我看到一个很好玩的东西 https://github.com/wty-yy/KataCR.git  这个工作做得比我的本科毕设更有趣。工作量也是非常足够的。用视觉手段实现游戏AI皇室战争。
+* https://github.com/Ronchy2000/Multi-agent-RL.git 我看到一个实现的非常完善的仓库，认为可以学习。里面还是有不少东西的
 
 ## 感谢西湖大学赵老师的视频课程❄️
 
