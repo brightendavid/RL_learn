@@ -10,10 +10,12 @@ from gridenv import grid_env
 
 """
 VFA方法：（value function approximation）
-这个就是和最小二乘拟合的相似的方法，使用函数化的方法去拟合qvalue
+这个就是和最小二乘拟合的相似的方法，使用函数化的方法去拟合qvalue或者state value
 最小二乘拟合是y=ax+b去拟合(x,y)的序列
 此处输入为s,a，输出为q.
-请注意，并不一定要使用神经网络的方式去做
+请注意，并不一定要使用神经网络的方式去做，这本质上是一个取 基函数 去拟合q value 或者 state value的过程，这个过程不可避免的存在一些误差
+
+这里包含了sarsa和qlearning两个实现方法，实际上使用神经网络也是一种做法，我这里只是分开写了，更加方便看
 """
 
 class Solve:
