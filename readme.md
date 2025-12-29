@@ -19,10 +19,8 @@ VFA.py| 这是使用函数化方法去估计qvalue的方法 | ？？ |
 net_based.py|        这是dqn算法        | ？？ |
 
 ## Problems🍳
-* dqn的训练结果有一些问题，具体来说就是可以达到一定的效果，但是绝不是一个最好的策略。
-* 这可能和超参数的设置有关，总之，这个训练对于这个量级的模型而言非常慢，效果比预想的要差很多
-* 这可能是无模型强化学习训练的通病
-* 我知道了，是dqn的模型更新错了
+* nstep sarsa实现有问题
+* PGM的采样无法实现足够的探索性，导致最后的策略有问题
 
 
 
@@ -76,5 +74,5 @@ net_based.py|        这是dqn算法        | ？？ |
 
 <p align="center">
   <em> ❤️ 感谢您的关注!</em><br><br>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=ronchy2000.Multi-agent-RL&style=for-the-badge&color=00d4ff" alt="Views">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=brightendavid/RL_learn&style=for-the-badge&color=00d4ff" alt="Views">
 </p>

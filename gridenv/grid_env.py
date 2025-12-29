@@ -25,6 +25,7 @@ def arr_in_list(array, _list):
 
 class GridEnv(gym.Env):
     # 类级别的属性，可以被调用
+    size = None
     agent_location = None
     Rsa = None
     Psa = None
