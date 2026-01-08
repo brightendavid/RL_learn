@@ -55,7 +55,7 @@ class GridEnv(gym.Env):
         self.target_location = np.array(target)
         # 初始化 动作空间 观测空间
         self.action_space, self.action_space_size = spaces.Discrete(5), spaces.Discrete(5).n
-        self.reward_list = [0, 1, -10, -10]
+        self.reward_list = [0, 20, -10, -10]
         self.observation_space = spaces.Dict(
             {
                 "agent": spaces.Box(0, size - 1, shape=(2,), dtype=int),
